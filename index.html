@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goiás Auto Peças | Peças Automotivas de Qualidade - Barra Funda RS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Oswald:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --vermelho: #D32F2F;
+            --vermelho-escuro: #B71C1C;
+            --preto: #1A1A1A;
+            --cinza-escuro: #2D2D2D;
+            --cinza-medio: #4A4A4A;
+            --cinza-claro: #E0E0E0;
+            --branco: #F5F5F5;
+            --amarelo-destaque: #FFC107;
+            --azul-acao: #1565C0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .display-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .font-rajdhani {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Navbar Industrial */
+        .navbar {
+            background: rgba(26, 26, 26, 0.98);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            padding: 12px 0;
+            border-bottom: 3px solid var(--vermelho);
+        }
+
+        .navbar-brand {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white !important;
+            letter-spacing: 2px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand i {
+            color: var(--vermelho);
+            font-size: 2.2rem;
+            margin-right: 10px;
+        }
+
+        .navbar-brand span {
+            color: var(--vermelho);
+        }
+
+        .nav-link {
+            color: #ccc !important;
+            font-weight: 600;
+            margin: 0 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--vermelho) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 4px;
+            left: 0;
+            background-color: var(--vermelho);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(30,30,30,0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=1932&auto=format&fit=crop') center/cover no-repeat;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            margin-top: 76px;
+            border-bottom: 5px solid var(--vermelho);
+        }
+
+        .hero-overlay-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(211,47,47,0.05) 2px, rgba(211,47,47,0.05) 4px);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            text-shadow: 3px 3px 0px rgba(211,47,47,0.5);
+            color: white;
+        }
+
+        .hero-content .subtitle {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.8rem;
+            color: var(--cinza-claro);
+            letter-spacing: 3px;
+            font-weight: 500;
+        }
+
+        .hero-tag {
+            background: var(--vermelho);
+            display: inline-block;
+            padding: 8px 25px;
+            border-radius: 3px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin: 15px 0;
+            text-transform: uppercase;
+        }
+
+        .btn-custom-pecas {
+            background: var(--vermelho);
+            border: none;
+            color: white;
+            padding: 15px 45px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+            font-family: 'Oswald', sans-serif;
+            box-shadow: 0 8px 20px rgba(211,47,47,0.4);
+            border: 2px solid var(--vermelho);
+        }
+
+        .btn-custom-pecas:hover {
+            background: transparent;
+            color: white;
+            border-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(255,255,255,0.2);
+        }
+
+        .btn-outline-pecas {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 12px 35px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            border-radius: 3px;
+        }
+
+        .btn-outline-pecas:hover {
+            background: white;
+            color: var(--preto);
+            border-color: white;
+        }
+
+        /* Seção de Categorias */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--preto);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--vermelho);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--cinza-medio);
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin-top: 25px;
+        }
+
+        .card-peca {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            background: white;
+            height: 100%;
+            border-bottom: 4px solid transparent;
+        }
+
+        .card-peca:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+            border-bottom: 4px solid var(--vermelho);
+        }
+
+        .card-peca .icone-categoria {
+            font-size: 3rem;
+            color: var(--vermelho);
+            margin: 30px 0 15px;
+            transition: 0.3s;
+        }
+
+        .card-peca:hover .icone-categoria {
+            transform: scale(1.2);
+        }
+
+        .card-peca .card-body {
+            padding: 20px 25px 30px;
+            text-align: center;
+        }
+
+        .card-peca h5 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            color: var(--preto);
+            font-size: 1.3rem;
+        }
+
+        /* Frase Seção */
+        .frase-section {
+            background: var(--preto);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            border-top: 4px solid var(--vermelho);
+            border-bottom: 4px solid var(--vermelho);
+        }
+
+        .frase-section .aspas {
+            font-size: 8rem;
+            color: var(--vermelho);
+            opacity: 0.6;
+            line-height: 1;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .frase-texto {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--cinza-claro);
+            letter-spacing: 1px;
+        }
+
+        .frase-autor {
+            color: var(--vermelho);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        /* Informações da Empresa */
+        .info-empresa-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.05);
+            height: 100%;
+            border-left: 5px solid var(--vermelho);
+            transition: 0.3s;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-empresa-card:hover {
+            box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+            border-left-width: 8px;
+        }
+
+        .info-empresa-card i {
+            font-size: 2.2rem;
+            color: var(--vermelho);
+            margin-top: 5px;
+        }
+
+        .info-empresa-card h5 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--preto);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .info-empresa-card p {
+            color: var(--cinza-medio);
+            margin-bottom: 5px;
+        }
+
+        .badge-cnpj {
+            background: var(--cinza-escuro);
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 1px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+
+        /* Seção Contato */
+        .contato-section {
+            background: var(--cinza-escuro);
+            color: white;
+            padding: 70px 0;
+        }
+
+        .contato-item i {
+            color: var(--vermelho);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contato-item h5 {
+            font-family: 'Oswald', sans-serif;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--preto);
+            color: #aaa;
+            padding: 50px 0 25px;
+            border-top: 4px solid var(--vermelho);
+        }
+
+        footer h4 {
+            color: var(--vermelho);
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--vermelho);
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .frase-texto {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-gear-wide-connected"></i> Goiás <span>Auto Peças</span>
+            </a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home"><i class="bi bi-house-gear me-1"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pecas"><i class="bi bi-tools me-1"></i> Peças</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#empresa"><i class="bi bi-building-gear me-1"></i> Empresa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato"><i class="bi bi-telephone-inbound me-1"></i> Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay-grid"></div>
+        <div class="hero-content container">
+            <p class="subtitle mb-2">Qualidade e Confiança em</p>
+            <span class="hero-tag"><i class="bi bi-star-fill me-2"></i>Desde 2010</span>
+            <h1 class="display-3 fw-bold">GOIÁS AUTO PEÇAS</h1>
+            <p class="fs-4 mb-4 fw-light" style="color: #ddd; letter-spacing: 2px;">Peças Automotivas para Todas as Marcas</p>
+            <div style="width: 100px; height: 4px; background: var(--vermelho); margin: 25px auto;"></div>
+            <p class="lead mb-5 mx-auto" style="max-width: 650px; color: #bbb; font-weight: 300;">
+                <i class="bi bi-pin-map-fill text-danger me-1"></i> Rodovia BR 386 Km 128 - Barra Funda/RS. Atendimento especializado para o seu veículo.
+            </p>
+            <a href="#pecas" class="btn btn-custom-pecas btn-lg me-3"><i class="bi bi-box-seam me-2"></i>Ver Categorias</a>
+            <a href="#contato" class="btn btn-outline-pecas btn-lg"><i class="bi bi-whatsapp me-2"></i>Falar Agora</a>
+        </div>
+    </section>
+
+    <!-- Frase de Impacto -->
+    <section class="frase-section">
+        <div class="container">
+            <div class="aspas">"</div>
+            <p class="frase-texto mt-2">Não vendemos apenas peças, entregamos segurança e desempenho para quem está na estrada.</p>
+            <p class="frase-autor mt-3"><i class="bi bi-dash-lg"></i> GOIÁS AUTO PEÇAS, COMPROMISSO COM VOCÊ <i class="bi bi-dash-lg"></i></p>
+        </div>
+    </section>
+
+    <!-- Categorias de Peças -->
+    <section id="pecas" class="py-5" style="background: #f4f4f4;">
+        <div class="container py-5">
+            <div class="section-title">
+                <h2>Nossas Categorias de Peças</h2>
+                <p>Trabalhamos com ampla variedade de autopeças para veículos nacionais e importados.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-peca">
+                        <div class="text-center"><i class="bi bi-disc icone-categoria"></i></div>
+                        <div class="card-body">
+                            <h5>Freios e Suspensão</h5>
+                            <p>Pastilhas, discos, amortecedores e componentes para garantir sua segurança.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-peca">
+                        <div class="text-center"><i class="bi bi-engine icone-categoria"></i></div>
+                        <div class="card-body">
+                            <h5>Motor e Filtros</h5>
+                            <p>Filtros de óleo, ar, combustível e peças de motor com procedência garantida.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-peca">
+                        <div class="text-center"><i class="bi bi-lightning-charge icone-categoria"></i></div>
+                        <div class="card-body">
+                            <h5>Elétrica e Ignição</h5>
+                            <p>Baterias, velas, alternadores e toda parte elétrica automotiva.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-peca">
+                        <div class="text-center"><i class="bi bi-droplet icone-categoria"></i></div>
+                        <div class="card-body">
+                            <h5>Óleos e Lubrificantes</h5>
+                            <p>Linha completa de lubrificantes para motor, câmbio e diferenciais.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-peca">
+                        <div class="text-center"><i class="bi bi-car-front icone-categoria"></i></div>
+                        <div class="card-body">
+                            <h5>Carroceria e Acessórios</h5>
+                            <p>Faróis, lanternas, retrovisores, palhetas e itens de acabamento.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-peca">
+                        <div class="text-center"><i class="bi bi-wrench-adjustable icone-categoria"></i></div>
+                        <div class="card-body">
+                            <h5>Ferramentas e Equipamentos</h5>
+                            <p>Ferramentas automotivas e equipamentos para oficina e uso profissional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dados da Empresa -->
+    <section id="empresa" class="py-5" style="background: white;">
+        <div class="container py-5">
+            <div class="section-title">
+                <h2>Dados da Empresa</h2>
+                <p>Informações oficiais da Goiás Auto Peças LTDA</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="info-empresa-card">
+                        <i class="bi bi-building"></i>
+                        <div>
+                            <h5>Razão Social</h5>
+                            <p class="fw-bold fs-5">Goiás Auto Peças LTDA</p>
+                            <small class="text-muted">Nome Fantasia: <strong>Goiás Auto Peças</strong></small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-empresa-card">
+                        <i class="bi bi-upc-scan"></i>
+                        <div>
+                            <h5>CNPJ</h5>
+                            <p class="fw-bold fs-5">07.947.117/0001-26</p>
+                            <span class="badge-cnpj">07947117000126</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-empresa-card">
+                        <i class="bi bi-calendar2-check"></i>
+                        <div>
+                            <h5>Situação Cadastral</h5>
+                            <p>Data de Abertura: <strong>03/11/2010</strong></p>
+                            <span class="badge bg-success fs-6"><i class="bi bi-shield-fill-check me-1"></i> Ativa / Regular</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-empresa-card">
+                        <i class="bi bi-geo-alt"></i>
+                        <div>
+                            <h5>Endereço Completo</h5>
+                            <p class="fw-bold">Rodovia BR 386 Km 128, 18758</p>
+                            <p>Bairro: Pingo</p>
+                            <p>Barra Funda - Rio Grande do Sul</p>
+                            <p><strong>CEP: 99585-000</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="p-4 bg-light rounded-3 shadow-sm">
+                            <i class="bi bi-info-circle-fill text-danger fs-3"></i>
+                            <p class="mt-2 mb-0 fs-5 fw-light">"Atendemos Barra Funda e toda região do Rio Grande do Sul com agilidade e compromisso. Peças de qualidade desde 2010."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="contato-section">
+        <div class="container text-center">
+            <div class="section-title">
+                <h2 style="color: white;">Entre em Contato</h2>
+                <p style="color: #ccc;">Estamos prontos para atender você com a melhor solução em autopeças.</p>
+            </div>
+            <div class="row g-4 mt-4">
+                <div class="col-md-4 contato-item">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <h5>Endereço</h5>
+                    <p>Rodovia BR 386 Km 128, 18758<br>Bairro Pingo - Barra Funda/RS<br>CEP: 99585-000</p>
+                </div>
+                <div class="col-md-4 contato-item">
+                    <i class="bi bi-telephone-fill"></i>
+                    <h5>Telefone / WhatsApp</h5>
+                    <p>(54) 9XXXX-XXXX</p>
+                    <p>(54) 3XXX-XXXX</p>
+                    <p class="small">Seg a Sex: 8h às 18h | Sáb: 8h às 12h</p>
+                </div>
+                <div class="col-md-4 contato-item">
+                    <i class="bi bi-envelope-fill"></i>
+                    <h5>E-mail</h5>
+                    <p>vendas@goiasautopecas.com.br</p>
+                    <p>contato@goiasautopecas.com.br</p>
+                    <div class="mt-3">
+                        <a href="#" class="text-white me-3"><i class="bi bi-whatsapp fs-3"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-3"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-facebook fs-3"></i></a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn btn-custom-pecas btn-lg mt-5 px-5"><i class="bi bi-whatsapp me-2"></i>Solicitar Orçamento</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <h4><i class="bi bi-gear-wide-connected me-2"></i>GOIÁS AUTO PEÇAS</h4>
+            <p class="mb-1">Goiás Auto Peças LTDA | CNPJ: 07.947.117/0001-26</p>
+            <p class="small">Rodovia BR 386 Km 128, 18758 - Bairro Pingo - Barra Funda/RS - 99585-000</p>
+            <div class="copyright">
+                <p class="mb-0">&copy; 2010 - 2026 Goiás Auto Peças. Todos os direitos reservados.</p>
+                <p class="small mt-2"><i class="bi bi-car-front-fill text-danger"></i> Qualidade e confiança desde 03/11/2010</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll suave para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
